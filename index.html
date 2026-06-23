@@ -15,91 +15,147 @@
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    var map = L.map('map').setView([-22.5, -44.5], 6);
+    var map = L.map('map').setView([-15, -45], 5);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
+    // Pontos do mapa
     var pontos = [
-      {
-        nome: "A ATUAL SITUAÇÃO DE SÃO PAULO! #57",
-        lat: -23.5505,
-        lng: -46.6333,
-        url: "LINK_DO_VIDEO_SAO_PAULO"
-      },
-      {
-        nome: "CHEGOU A HORA! ABANDONANDO TUDO PARA MORAR EM UMA KOMBI #58",
-        lat: -22.0056,
-        lng: -47.8977,
-        url: "https://www.youtube.com/watch?v=WT-s8sUhSZo"
-      },
-      {
-        nome: "OFICIALMENTE MORANDO em uma KOMBI. QUAL SERÁ NOSSA ROTA? EP01",
-        lat: -23.2237,
-        lng: -45.9009,
-        url: "LINK_DO_VIDEO_SAO_JOSE_01"
-      },
-      {
-        nome: "As primeiras 48 horas Vivendo em uma Kombi EP02",
-        lat: -23.2237,
-        lng: -45.9009,
-        url: "LINK_DO_VIDEO_SAO_JOSE_02"
-      },
-      {
-        nome: "Do CÉU ao INFERNO em Questão de Minutos: Vivendo em um Motorhome no Litoral de SP EP03",
-        lat: -23.6206,
-        lng: -45.4091,
-        url: "LINK_DO_VIDEO_CARAGUATATUBA_01"
-      },
-      {
-        nome: "Nos surpreendemos MUITO com Caraguatatuba - SP de Motorhome EP04",
-        lat: -23.6206,
-        lng: -45.4091,
-        url: "LINK_DO_VIDEO_CARAGUATATUBA_02"
-      },
-      {
-        nome: "Tivemos um Acidente com o Motorhome A caminho de Paraty EP05",
-        lat: -23.2221,
-        lng: -44.7176,
-        url: "LINK_DO_VIDEO_PARATY_01"
-      },
-      {
-        nome: "Vivendo um PARAÍSO em Paraty de Motorhome!! EP06",
-        lat: -23.2221,
-        lng: -44.7176,
-        url: "https://www.youtube.com/watch?v=tH82XU-uY7k&t=4s"
-      },
-      {
-        nome: "Explorando Angra dos Reis de Motorhome EP07",
-        lat: -23.0067,
-        lng: -44.3188,
-        url: "LINK_DO_VIDEO_ANGRA"
-      },
-      {
-        nome: "Por isso Essa Região É Considerada Uma das Melhores do Brasil EP08",
-        lat: -22.8824,
-        lng: -42.0192,
-        url: "LINK_DO_VIDEO_CABO_FRIO"
-      },
-      {
-        nome: "A Vida Real Morando em uma KOMBI em Arraial do Cabo RJ EP09",
-        lat: -22.9671,
-        lng: -42.0277,
-        url: "https://www.youtube.com/watch?v=wD7lTwm-BPk&t=4s"
-      },
-      {
-        nome: "QUASE CAÍMOS em um GOLPE no RIO DE JANEIRO EP10",
-        lat: -22.9671,
-        lng: -42.0277,
-        url: "LINK_DO_VIDEO_ARRAIAL_01"
-      },
-      {
-        nome: "NUNCA IMAGINEI ENCONTRAR ISSO EM Búzios RJ EP11",
-        lat: -22.7500,
-        lng: -41.8846,
-        url: "LINK_DO_VIDEO_BUZIOS"
-      }
+      // São Paulo - SP
+      { nome: "A ATUAL SITUAÇÃO DE SÃO PAULO! #57", lat: -23.5505, lng: -46.6333, url: "https://www.youtube.com/watch?v=MrLgBQxKmeY" },
+
+      // São Carlos - SP
+      { nome: "CHEGOU A HORA! ABANDONANDO TUDO PARA MORAR EM UMA KOMBI #58", lat: -22.0056, lng: -47.8977, url: "https://www.youtube.com/watch?v=WT-s8sUhSZo" },
+
+      // São José dos Campos - SP (2 vídeos)
+      { nome: "OFICIALMENTE MORANDO em uma KOMBI. QUAL SERÁ NOSSA ROTA? EP01", lat: -23.2237, lng: -45.9009, url: "https://www.youtube.com/watch?v=FOVVckfR_eE&pp=0gcJCT8LAYcqIYzv" },
+      { nome: "As primeiras 48 horas Vivendo em uma Kombi EP02", lat: -23.2247, lng: -45.8989, url: "https://www.youtube.com/watch?v=Ef4VKpPUiIU&t=1482s" },
+
+      // Caraguatatuba - SP (2 vídeos)
+      { nome: "Do CÉU ao INFERNO em Questão de Minutos: Vivendo em um Motorhome no Litoral de SP EP03", lat: -23.6206, lng: -45.4091, url: "https://www.youtube.com/watch?v=Eo_sOEFMyRw" },
+      { nome: "Nos surpreendemos MUITO com Caraguatatuba - SP de Motorhome EP04", lat: -23.6216, lng: -45.4071, url: "https://www.youtube.com/watch?v=WznvGC5zJRI" },
+
+      // Paraty - RJ (2 vídeos)
+      { nome: "Tivemos um Acidente com o Motorhome A caminho de Paraty EP05", lat: -23.2221, lng: -44.7176, url: "https://www.youtube.com/watch?v=XMJLG6tsPIs&pp=0gcJCT8LAYcqIYzv" },
+      { nome: "Vivendo um PARAÍSO em Paraty de Motorhome!! EP06", lat: -23.2211, lng: -44.7196, url: "https://www.youtube.com/watch?v=tH82XU-uY7k&t=4s" },
+
+      // Angra dos Reis - RJ
+      { nome: "Explorando Angra dos Reis de Motorhome EP07", lat: -23.0067, lng: -44.3188, url: "https://www.youtube.com/watch?v=F7QyRuc6o-A&t=884s" },
+
+      // Cabo Frio - RJ
+      { nome: "Por isso Essa Região É Considerada Uma das Melhores do Brasil EP08", lat: -22.8824, lng: -42.0192, url: "https://www.youtube.com/watch?v=3xO_NIfVX5E" },
+
+      // Arraial do Cabo - RJ (2 vídeos)
+      { nome: "A Vida Real Morando em uma KOMBI em Arraial do Cabo RJ EP09", lat: -22.9671, lng: -42.0277, url: "https://www.youtube.com/watch?v=wD7lTwm-BPk&t=4s" },
+      { nome: "QUASE CAÍMOS em um GOLPE no RIO DE JANEIRO EP10", lat: -22.9661, lng: -42.0257, url: "https://www.youtube.com/watch?v=karSuKdWTDQ" },
+
+      // Búzios - RJ
+      { nome: "NUNCA IMAGINEI ENCONTRAR ISSO EM Búzios RJ EP11", lat: -22.75, lng: -41.8846, url: "https://www.youtube.com/watch?v=oT-veORLwr4" },
+
+      // Rio das Ostras - RJ (3 vídeos, variação nas coords)
+      { nome: "Viramos Atração Turística em Rio das Ostras - RJ", lat: -22.5278, lng: -41.9454, url: "https://www.youtube.com/watch?v=opXoqfvDM0U" },
+      { nome: "24 Horas Vivendo em Uma Kombi no RJ EP13", lat: -22.5288, lng: -41.9434, url: "https://www.youtube.com/watch?v=MIibqKI6Bc0" },
+      { nome: "TIVEMOS MAIS PREJUÍZOS NO RIO DE JANEIRO", lat: -22.5268, lng: -41.9474, url: "https://www.youtube.com/watch?v=E6h-t-wcCnc&t=151s" },
+
+      // São João da Barra - RJ
+      { nome: "CHEGAMOS no nosso próximo DESTINO e é INCRÍVEL!", lat: -21.6385, lng: -41.0444, url: "https://www.youtube.com/watch?v=1YFG3PTMfjo&t=715s" },
+
+      // Atafona - RJ
+      { nome: "Uma CIDADE que está sendo ENGOLIDA PELO MAR no Rio De Janeiro", lat: -21.6230, lng: -41.0164, url: "https://www.youtube.com/watch?v=9bI4IJmJBAg" },
+
+      // Presidente Kenedy - ES
+      { nome: "PRIMEIRAS IMPRESSÕES DO ESPÍRITO SANTO", lat: -21.0963, lng: -41.0429, url: "https://www.youtube.com/watch?v=nW19wIEhyX8&t=255s" },
+
+      // Guarapari - ES
+      { nome: "ROTINA REAL DE QUEM MORA EM UM MOTORHOME", lat: -20.6773, lng: -40.4960, url: "https://www.youtube.com/watch?v=qWtCoMXSUZ8&t=419s" },
+
+      // Vila Velha - ES (2 vídeos)
+      { nome: "ASSIM TEM SIDO MORAR EM UM MOTORHOME NO ESPÍRITO SANTO", lat: -20.3417, lng: -40.2875, url: "https://www.youtube.com/watch?v=VEWcpy_o67A" },
+      { nome: "O que fazer em VILA VELHA - ES em 3 DIAS", lat: -20.3407, lng: -40.2845, url: "https://www.youtube.com/watch?v=yZJyFAoY-tU" },
+
+      // Linhares - ES
+      { nome: "COMPRAMOS UMA BIKE ELÉTRICA. QUANTO PAGAMOS?", lat: -19.3947, lng: -40.0643, url: "https://www.youtube.com/watch?v=YQk2oANim-E&t=1097s" },
+
+      // Coordenadas exatas já informadas
+      { nome: "FOMOS PESCAR PIRANHA DE CAIAQUE INFLÁVEL", lat: -19.22121, lng: -40.20866, url: "https://www.youtube.com/watch?v=Lwpv58YSCYU&t=66s" },
+      { nome: "Um PARAÍSO ESCONDIDO No Brasil", lat: -18.33244, lng: -39.66375, url: "https://www.youtube.com/watch?v=NxKoJ82vRp0&t=1020s" },
+
+      // Porto Seguro - BA
+      { nome: "CHEGAMOS ONDE FOI O DESCOBRIMENTO DO BRASIL", lat: -16.4510, lng: -39.0647, url: "https://www.youtube.com/watch?v=-I2jcBIrlGo" },
+
+      // Arraial D'ajuda - BA (três vídeos)
+      { nome: "A Cidade eleita o DESTINO turístico MAIS ACOLHEDOR do mundo", lat: -16.4856, lng: -39.0472, url: "https://www.youtube.com/watch?v=i_WQXsODkJw&t=715s" },
+      { nome: "Eles têm 70 anos e decidiram morar em um Ford Ka", lat: -16.4846, lng: -39.0492, url: "https://www.youtube.com/watch?v=gPLYXtIXa8k&t=27s" },
+      { nome: "A Arraial D'Ajuda que ninguém te mostra", lat: -16.4836, lng: -39.0512, url: "https://www.youtube.com/watch?v=XYKD-_D2DLM&t=33s" },
+
+      // Canavieiras - BA (dois vídeos)
+      { nome: "ENCONTRAMOS O CAMPING mais BARATO do BRASIL", lat: -15.6615, lng: -38.9368, url: "https://www.youtube.com/watch?v=_cnuLn2Fs7I&t=1s" },
+      { nome: "O PARAÍSO ESCONDIDO NA BAHIA", lat: -15.6605, lng: -38.9388, url: "https://www.youtube.com/watch?v=vOSbrYMO3gw&t=1s" },
+
+      // Ilheus - BA (dois vídeos)
+      { nome: "Eles construíram esse motorhome GIGANTE no Brasil", lat: -14.7887, lng: -39.0493, url: "https://www.youtube.com/watch?v=meh3N-hycqA&t=773s" },
+      { nome: "A Kombi Quase Caiu na Ribanceira (Fui parar no hospital)!", lat: -14.7877, lng: -39.0523, url: "https://www.youtube.com/watch?v=JNxF9E5kYfA&t=1s" },
+
+      // Península de Maraú - BA
+      { nome: "Essa é a MELHOR praia da Bahia… mas NÃO é pra qualquer um!", lat: -13.9847, lng: -38.9493, url: "https://www.youtube.com/watch?v=AgxF8Xzek4g&t=1s" },
+
+      // Camamu - BA
+      { nome: "A volta de Maraú quase terminou muito mal!", lat: -13.9397, lng: -39.1060, url: "https://www.youtube.com/watch?v=rgrtvkjWbYw" },
+
+      // Salvador - BA
+      { nome: "Morar em um Motorhome vai destruir o seu casamento?", lat: -12.9777, lng: -38.5016, url: "https://www.youtube.com/watch?v=XIqbJR8qCoA" },
+
+      // Aracaju - BA (dois vídeos)
+      { nome: "Não esperávamos encontrar ISSO em Aracaju", lat: -10.9472, lng: -37.0731, url: "https://www.youtube.com/watch?v=_GpeogToT_M" },
+      { nome: "Quase aconteceu uma tragédia com nosso Motorhome!", lat: -10.9482, lng: -37.0751, url: "https://www.youtube.com/watch?v=xjT2xQws_v8" },
+
+      // Maceió - AL
+      { nome: "A verdade sobre Maceió que ninguém está mostrando", lat: -9.6658, lng: -35.7350, url: "https://www.youtube.com/watch?v=NPzlYZ2IfrU&pp=0gcJCT8LAYcqIYzv" },
+
+      // São Miguel dos Milagres - AL (dois vídeos)
+      { nome: "Eles moram em uma Kombi com 5 gatos… e vivem disso", lat: -9.2615, lng: -35.3703, url: "https://www.youtube.com/watch?v=XT31c4uNe1w&t=8s" },
+      { nome: "Uma Kombi INSANA, que pode ser sua por R$0,69!!", lat: -9.2605, lng: -35.3723, url: "https://www.youtube.com/watch?v=1YSUBmj3szk" },
+
+      // Maragogi - AL
+      { nome: "O pneu furou no pior momento possível…", lat: -9.0132, lng: -35.2226, url: "https://www.youtube.com/watch?v=hfISNybNh7U&t=10s" },
+
+      // Porto de Galinhas - PE
+      { nome: "Qual desses motorhomes eu escolheria pra morar?", lat: -8.5021, lng: -35.0098, url: "https://www.youtube.com/watch?v=FOVTpMuUOGA" },
+
+      // Recife - PE
+      { nome: "Fomos NEGADOS no visto americano… e não esperávamos isso", lat: -8.0476, lng: -34.8770, url: "https://www.youtube.com/watch?v=nBulhR6ARfU" },
+
+      // João Pessoa - PB
+      { nome: "João Pessoa é a melhor capital do Brasil pra viver HOJE?", lat: -7.1153, lng: -34.8641, url: "https://www.youtube.com/watch?v=i00JGpG0fgk" },
+
+      // Baia Formosa - RN
+      { nome: "A gente só queria ir pra praia… e deu MUITO errado", lat: -6.3727, lng: -35.0037, url: "https://www.youtube.com/watch?v=5W_HMJDxKhY" },
+
+      // Pipa - RN (2 vídeos)
+      { nome: "PIPA é tudo isso mesmo? A verdade nos surpreendeu", lat: -6.2336, lng: -35.0478, url: "https://www.youtube.com/watch?v=V77-uC6UUPM&t=3s" },
+      { nome: "O que ninguém mostra sobre Pipa RN", lat: -6.2346, lng: -35.0458, url: "https://www.youtube.com/watch?v=M3Ef-cY_K4o&t=25s" },
+
+      // Natal - RN (3 vídeos)
+      { nome: "Natal ou João Pessoa: qual é a melhor capital pra viver HOJE?", lat: -5.7945, lng: -35.2110, url: "https://www.youtube.com/watch?v=ElUqcJyxMKs&t=445s" },
+      { nome: "A VERDADE sobre os passeios em NATAL", lat: -5.7935, lng: -35.2100, url: "https://www.youtube.com/watch?v=ho-_V_URiBE" },
+      { nome: "Entrando na MAIOR feira de rua do Rio Grande do Norte", lat: -5.7925, lng: -35.2090, url: "https://www.youtube.com/watch?v=LXxpk5l0IMw" },
+
+      // Touros - RN
+      { nome: "A Kombi QUEBROU no pior lugar possível", lat: -5.2000, lng: -35.4608, url: "https://www.youtube.com/watch?v=xnL7fqcaVMg&t=556s&pp=0gcJCT8LAYcqIYzv" },
+
+      // Coordenada exata já informada
+      { nome: "Corremos SEM ROUPA nessa praia (e NÃO era praia de Nudismo)", lat: -5.15567, lng: -35.49755, url: "https://www.youtube.com/watch?v=sF4nI4csoqU&t=106s" },
+
+      // Macau - RN
+      { nome: "ESSA É A REGIÃO MAIS INCRÍVEL DO BRASIL e você PRECISA CONHECER", lat: -5.1076, lng: -36.6347, url: "https://www.youtube.com/watch?v=wRthzTG0lHI" },
+
+      // Canoa Quebrada - CE
+      { nome: "A VERDADE SOBRE MORAR EM UMA KOMBI EM CANOA QUEBRADA", lat: -4.5300, lng: -37.7705, url: "https://www.youtube.com/watch?v=rMNpkIJlzUU" },
+
+      // Fortaleza - CE
+      { nome: "A KOMBI QUEBROU NOVAMENTE e DESSA vez FOI GRAVE", lat: -3.7319, lng: -38.5267, url: "https://www.youtube.com/watch?v=VV8XSNCl7GY&pp=0gcJCT8LAYcqIYzv" }
     ];
 
     pontos.forEach(function(ponto) {
